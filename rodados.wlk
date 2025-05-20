@@ -1,5 +1,6 @@
 class Corsa{
     var property color 
+    var position = new Position(x=0, y=0) // game.at(0,0)
     method capacidad() = 4
     method velocidadMaxima()= 150
     method peso() = 1300
@@ -38,7 +39,7 @@ object popular {
   method peso() = 1000
 }
 
-class Especiales{
+class Especial{
     var property capacidad
     var property peso
     var property color
@@ -63,5 +64,10 @@ class Dependencia {
     method todosVanAlMenosA100() = flota.all({a=>a.velocidad()>100})
     method capacidadTotalEnColor(color) = self.rodadosDeColor(color).sum({a=>a.capacidad()}) 
     method rodadosDeColor(color) = flota.filter({a=>a.color() == color})
-     
-}
+    method colorDelRodadoMAsRapido() = self.rodadoMasRapido().color()
+    method rodadoMasRapido() = flota.max({a=>a.velocidadMaxima()})
+    method capacidadFaltante() = (empleados - self.capacidadDeLaFlota()).max(0)
+    method capacidadDeLaFlota() = flota.sum({a=>a.capacidad()})
+    method esGrande() = empleados >= 40 && self.cantidadRodados() > 5 
+    }
+    //INTENTOGUARDAR
