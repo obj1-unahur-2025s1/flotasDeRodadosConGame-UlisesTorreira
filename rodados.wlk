@@ -87,3 +87,5 @@ class Dependencia {
 class coloresValidos{
     const property listaColores = #{"rojo","azul","verde","blanco"}
 }
+
+ //INTENTOGUARDAR2 27-5
