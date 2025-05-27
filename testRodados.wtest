@@ -14,9 +14,9 @@ describe "test de rodados" {
     cultura.agregarAFlota(new Kwid(tieneTanqueAdicional=true))
     cultura.agregarAFlota(new Kwid(tieneTanqueAdicional=true))
     cultura.agregarAFlota(new Kwid(tieneTanqueAdicional=false))
-    cultura.agregarAFlota(Traffic)
-    Traffic.interior(popular)
-    Traffic.motor(bataton)
+    cultura.agregarAFlota(traffic)
+    traffic.interior(popular)
+    traffic.motor(bataton)
   }
   test "deportes tiene peso total" {
     assert.equals(1300+1300+1300+1350+1200, deportes.pesoTotalFLota())

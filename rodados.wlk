@@ -1,6 +1,11 @@
 class Corsa{
+    //var position = new Position(x=0, y=0) // game.at(0,0)
     var property color 
-    var position = new Position(x=0, y=0) // game.at(0,0)
+    method initialize() {
+        if(coloresValidos.listaColores().contains(color)){
+            self.error(color.toString() + "el auto no tiene un color válido")
+        }
+    }
     method capacidad() = 4
     method velocidadMaxima()= 150
     method peso() = 1300
@@ -14,7 +19,7 @@ class Kwid {
     method color() = "azul"
 }
 
-object Traffic {
+object traffic {
     var property interior = comodo
     var property motor = pulenta
     method capacidad() = interior.capacidad()
@@ -45,7 +50,12 @@ class Especial{
     var property color
     const velocidadMaxima
     method velocidadMaxima() = 
-        velocidadMaxima.min(topeDeVelocidadMaxima.tope())   
+        velocidadMaxima.min(topeDeVelocidadMaxima.tope())
+    method initialize() {
+        if(coloresValidos.listaColores().contains(color)){
+            self.error(color.toString() + "el auto no tiene un color válido")
+        }
+    }   
 }
 
 object topeDeVelocidadMaxima {
@@ -56,7 +66,9 @@ class Dependencia {
     const flota = []
     var property empleados = 0
 
-    method agregarAFlota(rodado) {flota.add(rodado)} 
+    method agregarAFlota(rodado) {
+        flota.add(rodado)
+        } 
     method quitarDeFlota(rodado) {flota.remove(rodado)}
     method pesoTotalFLota() = flota.sum({a=>a.peso()})
     method estaBienEquipada() = self.cantidadRodados() && self.todosVanAlMenosA100()
@@ -71,3 +83,7 @@ class Dependencia {
     method esGrande() = empleados >= 40 && self.cantidadRodados() > 5 
     }
     //INTENTOGUARDAR
+
+class coloresValidos{
+    const property listaColores = #{"rojo","azul","verde","blanco"}
+}
